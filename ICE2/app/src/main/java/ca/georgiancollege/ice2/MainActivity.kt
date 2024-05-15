@@ -6,16 +6,24 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import ca.georgiancollege.ice2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity()
 {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
 
+        // instantiates an object of type ActivityMainBinding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+
         enableEdgeToEdge()
 
-        setContentView(R.layout.activity_main)
+        // sets the content view to the "super view" or main view group
+        setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -23,7 +31,9 @@ class MainActivity : AppCompatActivity()
             insets
         }
 
-        val helloWorldString = findViewById<TextView>(R.id.helloWorldTextView)
+        // creates a reference to the TextView
+        val helloWorldString = binding.helloWorldTextView
+        // changes the text property of the TextView
         helloWorldString.text = getString(R.string.hello_tom)
     }
 }
