@@ -1,6 +1,7 @@
 package ca.georgiancollege.ice2
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -35,5 +36,21 @@ class MainActivity : AppCompatActivity()
         val helloWorldString = binding.helloWorldTextView
         // changes the text property of the TextView
         helloWorldString.text = getString(R.string.hello_tom)
+
+        val clickMeButton = binding.clickMeButton
+
+        clickMeButton.setOnClickListener{
+            Log.i("onCreate","Click Me Button Clicked!")
+
+            binding.helloWorldTextView.text = getString(R.string.clicked)
+        }
+
+        val anotherButton = binding.anotherButton
+
+        anotherButton.setOnClickListener {
+            Log.i("onCreate","Another Button was Clicked!")
+
+            binding.helloWorldTextView.text = getString(R.string.hello_tom)
+        }
     }
 }

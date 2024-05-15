@@ -16,21 +16,43 @@
         android:textColor="@color/red"
         android:textSize="@dimen/text_size"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@id/clickMeButton"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/clickMeButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/horizontalLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
-        android:text="@string/click_me"
-        android:textSize="@dimen/text_size"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/helloWorldTextView"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/clickMeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:backgroundTint="@color/blue"
+            android:text="@string/click_me"
+            android:textSize="@dimen/text_size"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/anotherButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red"
+            android:text="@string/and_me"
+            android:textSize="@dimen/text_size"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
