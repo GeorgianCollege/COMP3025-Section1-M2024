@@ -2,6 +2,8 @@ package ca.georgiancollege.ice2
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -52,5 +54,10 @@ class MainActivity : AppCompatActivity()
 
             binding.helloWorldTextView.text = getString(R.string.hello_tom)
         }
+    }
+
+    fun sharedEventHandler(view: View)
+    {
+
     }
 }
