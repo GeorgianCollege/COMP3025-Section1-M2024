@@ -3,6 +3,7 @@ package ca.georgiancollege.ice3
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -32,30 +33,29 @@ class MainActivity : AppCompatActivity()
             insets
         }
 
-        // creates a reference to the TextView
-        val helloWorldString = binding.helloWorldTextView
         // changes the text property of the TextView
-        helloWorldString.text = getString(R.string.hello_tom)
+        binding.helloWorldTextView.text = getString(R.string.hello_tom)
 
-        val clickMeButton = binding.clickMeButton
-
-        clickMeButton.setOnClickListener{
-            Log.i("onCreate","Click Me Button Clicked!")
-
-            binding.helloWorldTextView.text = getString(R.string.clicked)
+        binding.clickMeButton.setOnClickListener{
+            sharedEventHandler(it as Button)
         }
 
-        val anotherButton = binding.anotherButton
-
-        anotherButton.setOnClickListener {
-            Log.i("onCreate","Another Button was Clicked!")
-
-            binding.helloWorldTextView.text = getString(R.string.hello_tom)
+        binding.anotherButton.setOnClickListener {
+            sharedEventHandler(it as Button)
         }
     }
 
-    fun sharedEventHandler(view: View)
+    private fun sharedEventHandler(button: Button) = when(button)
     {
+        binding.clickMeButton -> binding.helloWorldTextView.text =
+            (if(binding.helloWorldTextView.text == "Clicked!")
+                getString(R.string.not_clicked)
+            else
+                getString(R.string.clicked))
 
+        binding.anotherButton ->
+            binding.helloWorldTextView.text = getString(R.string.do_something_else)
+
+        else -> {}
     }
 }

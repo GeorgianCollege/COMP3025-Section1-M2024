@@ -6,4 +6,6 @@
     <string name="click_me">Click Me!</string>
     <string name="clicked">Clicked!</string>
     <string name="and_me">And Me!</string>
+    <string name="not_clicked">Not Clicked!</string>
+    <string name="do_something_else">Do Something Else</string>
 </resources>
