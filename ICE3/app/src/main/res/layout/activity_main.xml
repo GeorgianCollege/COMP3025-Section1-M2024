@@ -9,6 +9,35 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/resultRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3">
+
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:layout_marginStart="@dimen/m_x"
+            android:layout_marginEnd="@dimen/m_x"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:gravity="end"
+            android:paddingStart="@dimen/p_x"
+            android:paddingTop="@dimen/p_y"
+            android:paddingEnd="@dimen/p_x"
+            android:paddingBottom="@dimen/p_y"
+            android:text="0"
+            android:textSize="@dimen/result_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/fifthRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@id/fourthRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/resultRow">
 
         <Button
             android:id="@+id/clearButton"
