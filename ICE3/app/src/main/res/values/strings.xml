@@ -1,11 +1,4 @@
 <resources>
     <string name="app_name">ICE3</string>
-    <string name="hello_world_string">Hello, World!</string>
-    <string name="good_bye_world">Good Bye, World!</string>
-    <string name="hello_tom">Hello, Tom</string>
-    <string name="click_me">Click Me!</string>
-    <string name="clicked">Clicked!</string>
-    <string name="and_me">And Me!</string>
-    <string name="not_clicked">Not Clicked!</string>
-    <string name="do_something_else">Do Something Else</string>
+    <string name="house">\uf015</string>
 </resources>

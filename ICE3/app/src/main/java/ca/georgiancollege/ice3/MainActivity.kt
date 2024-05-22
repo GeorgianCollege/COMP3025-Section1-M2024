@@ -32,30 +32,5 @@ class MainActivity : AppCompatActivity()
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        // changes the text property of the TextView
-        binding.helloWorldTextView.text = getString(R.string.hello_tom)
-
-        binding.clickMeButton.setOnClickListener{
-            sharedEventHandler(it as Button)
-        }
-
-        binding.anotherButton.setOnClickListener {
-            sharedEventHandler(it as Button)
-        }
-    }
-
-    private fun sharedEventHandler(button: Button) = when(button)
-    {
-        binding.clickMeButton -> binding.helloWorldTextView.text =
-            (if(binding.helloWorldTextView.text == "Clicked!")
-                getString(R.string.not_clicked)
-            else
-                getString(R.string.clicked))
-
-        binding.anotherButton ->
-            binding.helloWorldTextView.text = getString(R.string.do_something_else)
-
-        else -> {}
     }
 }
