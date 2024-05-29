@@ -1,6 +1,7 @@
 package ca.georgiancollege.ice4
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,5 +30,30 @@ class MainActivity : AppCompatActivity()
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val operandButtons = arrayOf(
+            binding.oneButton, binding.twoButton, binding.threeButton, binding.fourButton,
+            binding.fiveButton, binding.sixButton, binding.sevenButton, binding.eightButton,
+            binding.nineButton, binding.zeroButton, binding.decimalButton, binding.deleteButton,
+            binding.plusMinusButton, binding.clearButton
+        )
+
+        val operatorButtons = arrayOf(
+            binding.mulitplyButton, binding.plusButton, binding.percentButton, binding.minusButton,
+            binding.equalsButton, binding.divideButton
+        )
+
+        operandButtons.forEach{it.setOnClickListener{operandHandler(it.tag as String)}}
+        operatorButtons.forEach{it.setOnClickListener{operatorHandler(it.tag as String)}}
+    }
+
+    private fun operandHandler(tag: String)
+    {
+        binding.resultTextView.text = tag
+    }
+
+    private fun operatorHandler(tag: String)
+    {
+        binding.resultTextView.text = tag
     }
 }
