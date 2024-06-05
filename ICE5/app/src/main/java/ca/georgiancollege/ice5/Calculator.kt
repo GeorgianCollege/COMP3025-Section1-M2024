@@ -34,7 +34,14 @@ class Calculator(dataBinding: ActivityMainBinding)
     {
         when(tag)
         {
-            "." -> {}
+            "." -> {
+                if(!binding.resultTextView.text.contains("."))
+                {
+                    result += if(result.isEmpty()) "0." else "."
+
+                    binding.resultTextView.text = result
+                }
+            }
             "Delete" -> {}
             "Plus_Minus" -> {}
             else -> {
