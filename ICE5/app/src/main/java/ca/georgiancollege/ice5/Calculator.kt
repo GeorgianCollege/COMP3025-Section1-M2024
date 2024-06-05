@@ -42,7 +42,11 @@ class Calculator(dataBinding: ActivityMainBinding)
                     binding.resultTextView.text = result
                 }
             }
-            "Delete" -> {}
+            "Delete" -> {
+                result = result.dropLast(1)
+
+                binding.resultTextView.text = if(result.isEmpty()) "0" else result
+            }
             "Plus_Minus" -> {}
             else -> {
                 if(binding.resultTextView.text == "0")
