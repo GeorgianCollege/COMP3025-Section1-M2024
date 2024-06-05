@@ -5,12 +5,14 @@ import ca.georgiancollege.ice5.databinding.ActivityMainBinding
 class Calculator(dataBinding: ActivityMainBinding)
 {
     private val binding: ActivityMainBinding = dataBinding
+    private var result: String
 
     init {
-        createBindings()
+        result = ""
+        createButtonReferences()
     }
 
-    private fun createBindings(): Unit
+    private fun createButtonReferences(): Unit
     {
         val operandButtons = arrayOf(
             binding.oneButton, binding.twoButton, binding.threeButton, binding.fourButton,
@@ -30,11 +32,34 @@ class Calculator(dataBinding: ActivityMainBinding)
 
     private fun operandHandler(tag: String)
     {
-        binding.resultTextView.text = tag
+        when(tag)
+        {
+            "." -> {}
+            "Delete" -> {}
+            "Plus_Minus" -> {}
+            else -> {
+                if(binding.resultTextView.text == "0")
+                {
+                    result = tag
+                }
+                else
+                {
+                    result += tag
+                }
+                binding.resultTextView.text = result
+            }
+        }
     }
 
     private fun operatorHandler(tag: String)
     {
-        binding.resultTextView.text = tag
+        when(tag)
+        {
+            "Clear" -> {}
+            else -> {
+
+            }
+        }
+
     }
 }
