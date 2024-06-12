@@ -1,14 +1,24 @@
 package ca.georgiancollege.ice6
 
+import android.util.Log
 import ca.georgiancollege.ice6.databinding.ActivityMainBinding
 
 class Calculator(dataBinding: ActivityMainBinding)
 {
+    // Simple Computation: 1 + 2 = 3
+    // operand1 [operator] operand2 [equalsOperator] result
+    // LHS [operator] RHS [equalsOperator] result
+
+
     private val binding: ActivityMainBinding = dataBinding
     private var result: String
+    private var currentOperand: String
+    private var currentOperator: String
 
     init {
         result = ""
+        currentOperand = ""
+        currentOperator = ""
         createButtonReferences()
     }
 
@@ -78,12 +88,26 @@ class Calculator(dataBinding: ActivityMainBinding)
 
     private fun operatorHandler(tag: String): Unit
     {
-        when(tag)
+        if(tag != "Clear")
         {
-            "Clear" -> clear()
-            else -> {
-
+            if(currentOperand.isNotEmpty())
+            {
+                when(currentOperator)
+                {
+                    "Plus" -> add()
+                }
             }
+            else
+            {
+                currentOperand = binding.resultTextView.text.toString()
+                result = ""
+                binding.resultTextView.text = ""
+            }
+            currentOperator = tag
+        }
+        else
+        {
+            clear()
         }
 
     }
@@ -91,6 +115,22 @@ class Calculator(dataBinding: ActivityMainBinding)
     private fun clear(): Unit
     {
         result = ""
+        currentOperand = ""
+        currentOperator = ""
         binding.resultTextView.text = "0"
+    }
+
+    private fun add(): Unit
+    {
+        if(currentOperand.contains(".") || result.contains("."))
+        {
+            result = (currentOperand.toFloat() + result.toFloat()).toString()
+        }
+        else
+        {
+            result = (currentOperand.toInt() + result.toInt()).toString()
+        }
+        // TODO: Remove .0 if the result should be an Int
+        binding.resultTextView.text = result
     }
 }
