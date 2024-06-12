@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import ca.georgiancollege.ice6.databinding.ActivityMainBinding
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class MainActivity : AppCompatActivity()
 {
@@ -34,9 +38,10 @@ class MainActivity : AppCompatActivity()
 
         val calculator = Calculator(binding)
 
-        Log.i("onCreate - resource", getTextFromResource(this, R.raw.contacts))
-
-        Log.i( "onCreate - asset", getTextFromAsset(this, "contacts.json"))
+        for (contact in deserializeJSON()!!)
+        {
+            Log.i("Contact", contact.toString())
+        }
     }
 
     private fun getTextFromResource(context: Context, resourceId: Int): String
@@ -51,6 +56,16 @@ class MainActivity : AppCompatActivity()
         return context.resources.assets.open(fileName)
             .bufferedReader()
             .use { it.readText()}
+    }
+
+    private fun deserializeJSON(): List<ContactModel>?
+    {
+        val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
+        val listType = Types.newParameterizedType(List::class.java, ContactModel::class.java)
+        val adapter: JsonAdapter<List<ContactModel>> = moshi.adapter(listType)
+        val contactListRawString = getTextFromResource(this, R.raw.contacts)
+        val contactList: List<ContactModel>? = adapter.fromJson(contactListRawString)
+        return contactList
     }
 
 }
