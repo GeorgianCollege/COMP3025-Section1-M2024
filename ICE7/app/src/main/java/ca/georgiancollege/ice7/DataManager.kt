@@ -26,4 +26,14 @@ class DataManager private constructor(private val database: AppDatabase)
             return m_instance!!
         }
     }
+
+    suspend fun insert(tvShow: TVShow) = Companion.database.tvShowDao().insert(tvShow)
+
+    suspend fun update(tvShow: TVShow) = Companion.database.tvShowDao().update(tvShow)
+
+    suspend fun delete(tvShow: TVShow) = Companion.database.tvShowDao().delete(tvShow)
+
+    suspend fun getAllTVShows() = Companion.database.tvShowDao().getAllTVShows()
+
+    suspend fun getTVShowById(id: Int) = Companion.database.tvShowDao().getTVShowById(id)
 }
