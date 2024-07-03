@@ -16,22 +16,8 @@ class MainActivity : AppCompatActivity()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Create an array of TV shows (mock data)
-        val favouriteTVShows = arrayOf(
-            TVShow("House of the Dragon", "HBO"),
-            TVShow("Lord of the Rings", "Prime Video"),
-            TVShow("Andor", "Disney"),
-            TVShow("Severance", "AppleTv"),
-            TVShow("Star Trek: Strange New Worlds", "Paramount+")
-        )
 
-        val firstAdapter = FirstAdapter(favouriteTVShows)
 
-        // Set up the RecyclerView with the data from the array
-        binding.firstRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = firstAdapter
-        }
 
     }
 }
