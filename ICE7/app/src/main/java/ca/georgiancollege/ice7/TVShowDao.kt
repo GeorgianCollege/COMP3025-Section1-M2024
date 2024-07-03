@@ -2,6 +2,7 @@ package ca.georgiancollege.ice7
 
 import androidx.room.*
 
+@Dao
 interface TVShowDao {
     // Inserts a new TVShow into the database
     // If the TVSHow with the same ID already exists, it will be replaced
