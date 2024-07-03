@@ -2,4 +2,6 @@
     <string name="app_name">ICE7</string>
     <string name="title">Title</string>
     <string name="subtitle">SubTitle</string>
+    <string name="genre">Genre</string>
+    <string name="rating">Rating</string>
 </resources>
