@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ICE8</string>
+    <string name="title">Title</string>
+    <string name="subtitle">SubTitle</string>
+    <string name="genre">Genre</string>
+    <string name="rating">Rating</string>
+    <string name="enter_tv_show_title">Enter TV Show Title</string>
+    <string name="enter_tv_show_genre">Enter TV Show Genre</string>
+    <string name="enter_tv_show_rating">Enter TV Show Rating</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_tv_show">Add TV Show</string>
+</resources>
