@@ -1,23 +1,18 @@
 package ca.georgiancollege.section1_ice8
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.IgnoreExtraProperties
 
-// Entity annotation marks this class as a database table
-@Entity(tableName = "tv_shows")
+@IgnoreExtraProperties
 data class TVShow(
-    // Primary key annotation marks this column as the primary key
-    // and auto-generates the ID
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-
-    // Column to store the title of the TVShow
+    @DocumentId val id: String = "",
     val title: String,
-
-    // Column to store the genre of the TVShow
     val genre: String,
-
-    // Column to store the rating of the TVShow
     val rating: Double
 )
+{
+    // No-argument constructor required for Firestore deserialization
+    constructor() : this("", "", "", 0.0)
+}
+
 
