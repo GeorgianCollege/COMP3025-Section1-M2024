@@ -1,6 +1,5 @@
 package ca.georgiancollege.section1_ice8
 
-import android.content.Context
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -13,7 +12,7 @@ class DataManager private constructor()
 
     companion object
     {
-        private val TAG = "DataManager"
+        private const val TAG = "DataManager"
 
         @Volatile
         private var m_instance: DataManager? = null
