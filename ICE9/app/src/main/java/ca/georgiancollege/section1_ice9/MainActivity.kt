@@ -6,13 +6,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import ca.georgiancollege.section1_ice9.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity()
 {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: TVShowViewModel by viewModels()
-
+    private lateinit var auth: FirebaseAuth
     private lateinit var dataManager: DataManager
 
     private val adapter = TVShowListAdapter{ tvShow: TVShow ->
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
         // Initialize Firebase Firestore
         FirebaseFirestore.setLoggingEnabled(true)
 
@@ -47,6 +50,13 @@ class MainActivity : AppCompatActivity()
         binding.addTvShowFAB.setOnClickListener {
             val intent = Intent(this, DetailsActivity::class.java)
             startActivity(intent)
+        }
+
+        // set up the logout button
+        binding.logoutButton.setOnClickListener {
+            auth.signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 
