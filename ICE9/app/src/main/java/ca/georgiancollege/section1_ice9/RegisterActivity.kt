@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity()
                 lastName.isNotEmpty() &&
                 email.isNotEmpty() &&
                 password.isNotEmpty() &&
-                confirmPassword.isEmpty())
+                confirmPassword.isNotEmpty())
             {
                 if(password == confirmPassword)
                 {
@@ -50,8 +50,8 @@ class RegisterActivity : AppCompatActivity()
                                     viewModel.insertUser(newUser)
                                 }
 
-                                // If the registration is successful, navigate to the MainActivity
-                                startActivity(Intent(this, MainActivity::class.java))
+                                // If the registration is successful, navigate to the LoginActivity
+                                startActivity(Intent(this, LoginActivity::class.java))
                                 finish()
                             }
                             else
