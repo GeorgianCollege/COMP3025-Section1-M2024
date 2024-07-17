@@ -106,7 +106,7 @@ class DataManager private constructor()
     }
 
     // Function to get a User by ID
-    suspend fun getUserId(id: String): User? {
+    suspend fun getUserById(id: String): User? {
         return try {
             val result = db.collection("users").document(id).get().await()
             result?.toObject(User::class.java)
