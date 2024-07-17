@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="ca.georgiancollege.section1_ice9" />
+                  <option name="mobileSdkAppId" value="1:267869258562:android:2620cd14c4ee15bfc93edb" />
+                  <option name="projectId" value="comp3025-m2024-section1-ice8" />
+                  <option name="projectNumber" value="267869258562" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
