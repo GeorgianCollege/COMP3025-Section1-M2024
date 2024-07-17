@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity()
 
         viewModel.loadAllTVShows()
 
-        binding.addButton.setOnClickListener {
+        binding.addTvShowFAB.setOnClickListener {
             val intent = Intent(this, DetailsActivity::class.java)
             startActivity(intent)
         }
