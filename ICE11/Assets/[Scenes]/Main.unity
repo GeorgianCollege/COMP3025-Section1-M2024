@@ -433,6 +433,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5654225717829263066, guid: 0636cc118b590774594fd2457db7bbc8, type: 3}
+      propertyPath: boundary.max
+      value: 1.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654225717829263066, guid: 0636cc118b590774594fd2457db7bbc8, type: 3}
+      propertyPath: boundary.min
+      value: -1.78
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

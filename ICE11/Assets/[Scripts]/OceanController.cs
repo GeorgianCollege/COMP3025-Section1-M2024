@@ -4,7 +4,7 @@ public class OceanController : MonoBehaviour
 {
     public float max;
     public float min;
-    public float horizontalSpeed;
+    public float verticalSpeed;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class OceanController : MonoBehaviour
 
     void Move()
     {
-        transform.position += new Vector3(0.0f, -horizontalSpeed * Time.deltaTime, 0.0f);
+        transform.position += new Vector3(0.0f, -verticalSpeed * Time.deltaTime, 0.0f);
     }
 
     void CheckBounds()

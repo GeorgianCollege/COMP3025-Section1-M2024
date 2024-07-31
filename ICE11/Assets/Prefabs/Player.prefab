@@ -460,8 +460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecc9eabf861a2a4696defaa0a97d45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 1.78
-  min: -1.78
+  boundary:
+    min: -1.78
+    max: 1.78
   verticalPosition: -4
   yaySound: {fileID: 972457605589432583}
   thunderSound: {fileID: 7512630330844409960}

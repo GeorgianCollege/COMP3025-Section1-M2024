@@ -3,8 +3,7 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [Header("Movement Properties")]
-    public float max;
-    public float min;
+    public Boundary boundary;
     public float verticalPosition;
     [Header("Sound FX")]
     public AudioSource yaySound;
@@ -34,13 +33,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     void CheckBounds()
     {
-        if (transform.position.x <= min)
+        if (transform.position.x <= boundary.min)
         {
-            transform.position = new Vector3(min, verticalPosition, 0.0f);
+            transform.position = new Vector3(boundary.min, verticalPosition, 0.0f);
         }
-        else if (transform.position.x >= max)
+        else if (transform.position.x >= boundary.max)
         {
-            transform.position = new Vector3(max, verticalPosition, 0.0f);
+            transform.position = new Vector3(boundary.max, verticalPosition, 0.0f);
         }
     }
 
