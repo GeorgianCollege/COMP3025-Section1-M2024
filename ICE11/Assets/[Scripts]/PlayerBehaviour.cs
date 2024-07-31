@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Movement Properties")]
     public float max;
     public float min;
     public float verticalPosition;
+    [Header("Sound FX")]
+    public AudioSource yaySound;
+    public AudioSource thunderSound;
 
     void Update()
     {
