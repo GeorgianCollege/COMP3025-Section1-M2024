@@ -102,4 +102,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 1.78
   min: -1.78
-  horizontalSpeed: 10
+  verticalPosition: -4

@@ -4,7 +4,6 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public float max;
     public float min;
-    public float horizontalSpeed;
     public float verticalPosition;
 
     void Update()
