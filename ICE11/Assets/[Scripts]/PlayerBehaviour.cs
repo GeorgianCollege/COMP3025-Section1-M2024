@@ -44,4 +44,16 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Island"))
+        {
+            yaySound.Play();
+        }
+        else if (other.gameObject.CompareTag("Cloud"))
+        {
+            thunderSound.Play();
+        }
+    }
+
 }
