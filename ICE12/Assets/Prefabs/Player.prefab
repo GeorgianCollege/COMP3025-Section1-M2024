@@ -466,3 +466,5 @@ MonoBehaviour:
   verticalPosition: -4
   yaySound: {fileID: 972457605589432583}
   thunderSound: {fileID: 7512630330844409960}
+  horizontalSpeed: 10
+  gameController: {fileID: 0}
