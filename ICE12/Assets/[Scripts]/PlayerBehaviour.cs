@@ -10,11 +10,15 @@ public class PlayerBehaviour : MonoBehaviour
     public AudioSource yaySound;
     public AudioSource thunderSound;
 
+    public float horizontalSpeed;
     public GameController gameController;
 
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+
+        // sets the player's initial position
+        transform.position = new Vector3(0.0f, verticalPosition, 0.0f);
     }
 
 
@@ -26,18 +30,30 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Move()
     {
-        // if there is at least one touch on the screen
-        if (Input.touchCount > 0)
+        if (Application.platform == RuntimePlatform.Android)
         {
-            // gets input touches from screen space in pixels
-            var x = Input.touches[0].position.x;
+            // if there is at least one touch on the screen
+            if (Input.touchCount > 0)
+            {
+                // gets input touches from screen space in pixels
+                var x = Input.touches[0].position.x;
 
-            // convert screen space to world space (unity units)
-            var horizontalPosition = Camera.main.ScreenToWorldPoint(new Vector3(x, 0.0f, 0.0f)).x;
+                // convert screen space to world space (unity units)
+                var horizontalPosition = Camera.main.ScreenToWorldPoint(new Vector3(x, 0.0f, 0.0f)).x;
 
-            //var x = Input.GetAxisRaw("Horizontal") * horizontalSpeed * Time.deltaTime;
-            transform.position = new Vector3(horizontalPosition, verticalPosition, 0.0f);
+                //var x = Input.GetAxisRaw("Horizontal") * horizontalSpeed * Time.deltaTime;
+                transform.position = new Vector3(horizontalPosition, verticalPosition, 0.0f);
+            }
         }
+        else
+        {
+            // falls back to keyboard input
+
+            var x = Input.GetAxisRaw("Horizontal") * horizontalSpeed * Time.deltaTime;
+
+            transform.position += new Vector3(x, 0.0f, 0.0f);
+        }
+
     }
 
     void CheckBounds()
